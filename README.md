@@ -94,7 +94,7 @@ Note: These analytical mart views are designed as a direct consumption layer for
                 └──────────────┬────────────────┘
                                │
                          dwh.fact_pitch
-              (1 row per business × episode pitch)
+                (1 row / business × episode pitch)
                                │
                ┌───────────────┴────────────────┐
                │                                │
