@@ -43,7 +43,7 @@ This project is based on publicly available data and reference material.
 - **Shark Tank (U.S.) - Wikipedia**  
   https://en.wikipedia.org/wiki/Shark_Tank  
 
-  Used for high-level contextual validation (e.g., seasons, sharks, and show structure). Wikipedia data was not merged directly into the warehouse.
+  Used for high-level contextual validation (ex: seasons, sharks, and show structure). Wikipedia data was not merged directly into the warehouse.
 
 ---
 
