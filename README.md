@@ -99,11 +99,11 @@ Note: These analytical mart views are designed as a direct consumption layer for
                ┌───────────────┴────────────────┐
                │                                │
       dwh.dim_business                   dwh.fact_deal_shark
-      (1 row / startup)         (1 row per pitch × shark deal)
+      (1 row / startup)             (1 row / pitch × shark deal)
                                                 │
                                                 │
                                           dwh.dim_shark
-                                        (1 row per shark)
+                                         (1 row / shark)
 
 
 ---
