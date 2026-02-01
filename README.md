@@ -202,10 +202,10 @@ The package is intentionally lightweight, handling only file ingestion, column m
 
 #### Control Flow
 The Control Flow manages execution order and file lifecycle:
-1. Check File Exists -- Confirms the source CSV is present before processing begins.
-2. Truncate Staging Table -- Clears `stage.pitch_raw_data` to ensure a clean load.  
-3. Load CSV to Staging Table -- Executes the Data Flow task to ingest the file.
-4. Move File to Archive -- Archives the source file after a successful load to prevent reprocessing.
+1. Check File Exists – Confirms the source CSV is present before processing begins.
+2. Truncate Staging Table – Clears `stage.pitch_raw_data` to ensure a clean load.  
+3. Load CSV to Staging Table – Executes the Data Flow task to ingest the file.
+4. Move File to Archive – Archives the source file after a successful load to prevent reprocessing.
 
 This structure supports repeatable, idempotent ingestion when run on a schedule.
 <p>
@@ -214,10 +214,10 @@ This structure supports repeatable, idempotent ingestion when run on a schedule.
 
 #### Data Flow
 The Data Flow performs the actual ingestion:
-1. CSV Source reads the raw file using a predefined schema  
-2. Convert Columns performs minimal type conversions required for insertion  
-3. Error Output captures rows that fail conversion without stopping the load  
-4. OLE DB Destination inserts valid rows into `stage.pitch_raw_data`
+1. CSV Source – Reads the raw file using a predefined schema.
+2. Convert Columns – Performs minimal type conversions required for insertion.
+3. Error Output – Captures rows that fail conversion without stopping the load  
+4. SharkTankDWH – An OLE DB destination that inserts valid rows into `stage.pitch_raw_data`
 
 No business rules or derived logic are applied in SSIS.
 <p>
