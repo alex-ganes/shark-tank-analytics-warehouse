@@ -50,34 +50,34 @@ This project is based on publicly available data and reference material.
 ## Architecture Overview
 
 ### Database
-- `SharkTankDWH` -- Analytics database for the project
+- `SharkTankDWH` – Analytics database for the project
 
 ### Schemas
-- `stage` -- Raw CSV landing tables
-- `dwh` -- Dimensional warehouse (dimensions + facts)
-- `analytics` -- Aggregate, BI-ready views (data marts)
+- `stage` – Raw CSV landing tables
+- `dwh` – Dimensional warehouse (dimensions + facts)
+- `analytics` – Aggregate, BI-ready views (data marts)
 
 ---
 
 ## Core Warehouse Objects
 
 ### Dimensions
-- `dwh.dim_shark` -- One row per shark  
-- `dwh.dim_business` -- One row per startup  
-- `dwh.dim_season` -- One row per season  
-- `dwh.dim_episode` -- One row per episode  
-- `dwh.dim_date` -- Standard calendar dimension  
+- `dwh.dim_shark` – One row per shark  
+- `dwh.dim_business` – One row per startup  
+- `dwh.dim_season` – One row per season  
+- `dwh.dim_episode` – One row per episode  
+- `dwh.dim_date` – Standard calendar dimension  
 
 ### Facts
-- `dwh.fact_pitch` -- Stores pitch outcomes and deal-level attributes. **Grain**: one row per business-episode.
+- `dwh.fact_pitch` – Stores pitch outcomes and deal-level attributes. **Grain**: one row per business-episode.
 
-- `dwh.fact_deal_shark` -- Captures investment amounts and equity by shark. **Grain**: one row per pitch-shark where a deal was made.
+- `dwh.fact_deal_shark` – Captures investment amounts and equity by shark. **Grain**: one row per pitch-shark where a deal was made.
 
 ### Analytics Marts
-- `analytics.vw_alltime_summary` -- Overall aggregated metrics
-- `analytics.vw_season_summary` -- Season-level aggregated metrics
-- `analytics.vw_episode_summary` -- Episode-level aggregated metrics
-- `analytics.vw_shark_alltime_summary` -- Overall shark-level metrics
+- `analytics.vw_alltime_summary` – Overall aggregated metrics
+- `analytics.vw_season_summary` – Season-level aggregated metrics
+- `analytics.vw_episode_summary` – Episode-level aggregated metrics
+- `analytics.vw_shark_alltime_summary` – Overall shark-level metrics
 
 Note: These analytical mart views are designed as a direct consumption layer for BI tools (ex: Power BI, Tableau), with metrics pre-aggregated to minimize semantic modeling downstream.
 
@@ -318,14 +318,3 @@ For users who wish to run the pipeline locally:
 14. `SharkTankDWH\SQL\Stored Procedures\dwh.load_shark_tank_dw.sql`
 15. `SharkTankDWH\SQL\Stored Procedures\dwh.populate_dim_date.sql`
 16. `SharkTankDWH\SQL\One-Off Scripts\add dates to dwh.dim_date.sql`
-
----
-
-## Notes
-
-This project is designed as a portfolio-quality demonstration of:
-- Dimensional modeling fundamentals  
-- ETL orchestration in constrained environments  
-- Thoughtful handling of imperfect real-world data  
-
-Not all users are expected to fully replicate the environment; the emphasis is on clarity of design and sound engineering decisions.
